@@ -15,8 +15,10 @@ public:
     void turnLeft();
     void goFoward();
     void goBackwards();
-
+    void go();
+    
 private:
-    void activateMotors();
-    void setDirection(int motor, int direction);
+    void DriveSystem::setDirection(int direction);
+    void DriveSystem::setDirection(int directionA,int directionB);
+    void DriveSystem::setDirection(int motorA, int directionA, int motorB, int directionB);
 };
