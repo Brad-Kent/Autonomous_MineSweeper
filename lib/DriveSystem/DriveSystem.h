@@ -8,13 +8,17 @@ private:
     const int MotorASpeed;
     const int MotorBSpeed;
 
+    int userSpecified;
+
 public:
     DriveSystem(int MotorA, int MotorB, int MotorASpeed, int MotorBSpeed);
+
     void stop();
-    void turnRight();
-    void turnLeft();
-    void goFoward();
+    void goFoward   ();
     void goBackwards();
+    void turnRight();
+    void turnLeft ();
+
 
 private:
     void activateMotors();
