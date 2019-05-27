@@ -1,7 +1,4 @@
-#include <Arduino.h>
-
-#define FOWARD HIGH
-#define BACKWARD LOW
+#pragma once
 
 class DriveSystem
 {
@@ -12,57 +9,14 @@ private:
     const int MotorBSpeed;
 
 public:
-    DriveSystem(int MotorA, int MotorB, int MotorASpeed, int MotorBSpeed):
-        MotorA{MotorA}, MotorB{MotorB}, MotorASpeed{MotorASpeed}, MotorBSpeed{MotorBSpeed}
-    {
-        pinMode(MotorA, OUTPUT);
-        pinMode(MotorB, OUTPUT);
-        pinMode(MotorASpeed, OUTPUT);
-        pinMode(MotorBSpeed, OUTPUT);
-    }
-
-    void stop()
-    {
-        digitalWrite(MotorASpeed, LOW);
-        digitalWrite(MotorBSpeed, LOW);
-    }
-
-    void turnRight()
-    {
-        digitalWrite(MotorA, FOWARD);
-        digitalWrite(MotorB, BACKWARD);
-        activateMotors();
-    }
-
-    void turnLeft()
-    {
-        digitalWrite(MotorA, BACKWARD);
-        digitalWrite(MotorB, FOWARD);
-        activateMotors();
-    }
-
-    void goFoward()
-    {
-        digitalWrite(MotorA, FOWARD);
-        digitalWrite(MotorB, FOWARD);
-        activateMotors();
-    }
-
-    void goBackwards()
-    {
-        digitalWrite(MotorA, BACKWARD);
-        digitalWrite(MotorB, BACKWARD);
-        activateMotors();
-    }
+    DriveSystem(int MotorA, int MotorB, int MotorASpeed, int MotorBSpeed);
+    void stop();
+    void turnRight();
+    void turnLeft();
+    void goFoward();
+    void goBackwards();
 
 private:
-    void activateMotors()
-    {
-        digitalWrite(MotorASpeed, HIGH);
-        digitalWrite(MotorBSpeed, HIGH);
-    }
-    void setDirection(int motor, int direction)
-    {
-
-    }
+    void activateMotors();
+    void setDirection(int motor, int direction);
 };

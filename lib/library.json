@@ -3,3 +3,8 @@
     "name": "Brad Kent",
     "email": "bradley_kent@hotmail.com"
 }
+"repository":
+{
+    "type": "git",
+    "url": "https://github.com/foo/bar.git"
+}
