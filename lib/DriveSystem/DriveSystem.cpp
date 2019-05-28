@@ -17,7 +17,7 @@ DriveSystem::DriveSystem(int MotorA, int MotorB, int MotorASpeed, int MotorBSpee
 }
 
 /*
-    NOTE: do i need to call go everytime? i think changing the direction and leving the current on/off will be fine 
+    NOTE: do i need to call go everytime? i think changing the direction and leving the current on/off will be fine
 */
 void DriveSystem::go()
 {
@@ -34,21 +34,25 @@ void DriveSystem::stop()
 void DriveSystem::turnRight()
 {
     setDirection(FOWARD, BACKWARD);
+    go();
 }
 
 void DriveSystem::turnLeft()
 {
     setDirection(BACKWARD, FOWARD);
+    go();
 }
 
 void DriveSystem::goFoward()
 {
     setDirection(FOWARD);
+    go();
 }
 
 void DriveSystem::goBackwards()
 {
     setDirection(BACKWARD);
+    go();
 }
 
 void DriveSystem::setDirection(int direction)

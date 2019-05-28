@@ -26,11 +26,13 @@ public:
       delay(500);
     }
 
-
+    float heading;
+    float headingDegrees;
+    sensors_event_t event;
     void readMag(void)
     {
       /* Get a new sensor event */
-      sensors_event_t event;
+
       mag.getEvent(&event);
 
       /* Display the results (magnetic vector values are in micro-Tesla (uT)) */
@@ -40,7 +42,7 @@ public:
 
       // Hold the module so that Z is pointing 'up' and you can measure the heading with x&y
       // Calculate heading when the magnetometer is level, then correct for signs of axis.
-      float heading = atan2(event.magnetic.y, event.magnetic.x);
+      heading = atan2(event.magnetic.y, event.magnetic.x);
 
       // Once you have your heading, you must then add your 'Declination Angle', which is the 'Error' of the magnetic field in your location.
       // Find yours here: http://www.magnetic-declination.com/
@@ -58,7 +60,7 @@ public:
         heading -= 2*PI;
 
       // Convert radians to degrees for readability.
-      float headingDegrees = heading * 180/M_PI;
+      headingDegrees = heading * 180/M_PI;
 
       Serial.print("Heading (degrees): "); Serial.println(headingDegrees);
 
