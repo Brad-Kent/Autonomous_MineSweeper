@@ -16,11 +16,17 @@ public:
     void stop();
     void goFoward   ();
     void goBackwards();
+<<<<<<< HEAD
     void turnRight();
     void turnLeft ();
 
 
+=======
+    void go();
+    
+>>>>>>> refactor
 private:
-    void activateMotors();
-    void setDirection(int motor, int direction);
+    void DriveSystem::setDirection(int direction);
+    void DriveSystem::setDirection(int directionA,int directionB);
+    void DriveSystem::setDirection(int motorA, int directionA, int motorB, int directionB);
 };
