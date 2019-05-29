@@ -16,15 +16,8 @@ public:
     void stop();
     void goFoward   ();
     void goBackwards();
-<<<<<<< HEAD
-    void turnRight();
-    void turnLeft ();
-
-
-=======
     void go();
-    
->>>>>>> refactor
+
 private:
     void DriveSystem::setDirection(int direction);
     void DriveSystem::setDirection(int directionA,int directionB);

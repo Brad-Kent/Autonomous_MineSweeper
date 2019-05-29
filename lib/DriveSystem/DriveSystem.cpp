@@ -17,8 +17,6 @@ DriveSystem::DriveSystem(int MotorA, int MotorB, int MotorASpeed, int MotorBSpee
     pinMode(MotorBSpeed, OUTPUT);
 }
 
-<<<<<<< HEAD
-=======
 /*
     NOTE: do i need to call go everytime? i think changing the direction and leving the current on/off will be fine
 */
@@ -27,7 +25,6 @@ void DriveSystem::go()
     digitalWrite(MotorASpeed, HIGH);
     digitalWrite(MotorBSpeed, HIGH);
 }
->>>>>>> refactor
 
 void DriveSystem::stop()
 {
@@ -37,66 +34,32 @@ void DriveSystem::stop()
 
 void DriveSystem::goFoward()
 {
-<<<<<<< HEAD
-    digitalWrite(MotorA, FOWARD);
-    digitalWrite(MotorB, FOWARD);
-    activateMotors();
-=======
     setDirection(FOWARD, BACKWARD);
     go();
->>>>>>> refactor
 }
 
 void DriveSystem::goBackwards()
 {
-<<<<<<< HEAD
-    digitalWrite(MotorA, BACKWARD);
-    digitalWrite(MotorB, BACKWARD);
-    activateMotors();
-=======
     setDirection(BACKWARD, FOWARD);
     go();
->>>>>>> refactor
 }
 
 void DriveSystem::turnRight()
 {
-<<<<<<< HEAD
-    digitalWrite(MotorA, FOWARD);
-    digitalWrite(MotorB, BACKWARD);
-    activateMotors();
-=======
     setDirection(FOWARD);
     go();
->>>>>>> refactor
 }
 
 void DriveSystem::turnLeft()
 {
-<<<<<<< HEAD
-    digitalWrite(MotorA, BACKWARD);
-    digitalWrite(MotorB, FOWARD);
-    activateMotors();
-}
-
-
-void DriveSystem::activateMotors()
-=======
     setDirection(BACKWARD);
     go();
 }
 
 void DriveSystem::setDirection(int direction)
->>>>>>> refactor
 {
     setDirection(direction, direction);
 }
-<<<<<<< HEAD
-
-void DriveSystem::setDirection(int motor, int direction)
-{
-    digitalWrite(motor, direction);
-=======
 void DriveSystem::setDirection(int directionA, int directionB)
 {
     setDirection(MotorA, directionA, MotorB, directionB);
@@ -105,5 +68,4 @@ void DriveSystem::setDirection(int motorA, int directionA, int motorB, int direc
 {
     digitalWrite(motorA, directionA);
     digitalWrite(motorB, directionB);
->>>>>>> refactor
 }
