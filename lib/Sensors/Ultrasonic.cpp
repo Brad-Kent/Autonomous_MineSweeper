@@ -11,6 +11,7 @@ Ultrasonic::Ultrasonic(int trigPin, int echoPin):
 
 double Ultrasonic::getDistance()
 {
+    ping();
     return distance;
 }
 

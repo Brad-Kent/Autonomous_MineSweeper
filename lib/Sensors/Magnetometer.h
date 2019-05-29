@@ -29,16 +29,22 @@ public:
     float heading;
     float headingDegrees;
     sensors_event_t event;
+    int x;
+    int y;
+    int z;
+
     void readMag(void)
     {
       /* Get a new sensor event */
 
       mag.getEvent(&event);
-
+      x = event.magnetic.x;
+      y = event.magnetic.y;
+      z = event.magnetic.z;
       /* Display the results (magnetic vector values are in micro-Tesla (uT)) */
-      Serial.print("X: "); Serial.print(event.magnetic.x); Serial.print("  ");
-      Serial.print("Y: "); Serial.print(event.magnetic.y); Serial.print("  ");
-      Serial.print("Z: "); Serial.print(event.magnetic.z); Serial.print("  ");Serial.println("uT");
+      Serial.print("X: "); Serial.print(x); Serial.print("  ");
+      Serial.print("Y: "); Serial.print(y); Serial.print("  ");
+      Serial.print("Z: "); Serial.print(z); Serial.print("  "); Serial.println(" ");
 
       // Hold the module so that Z is pointing 'up' and you can measure the heading with x&y
       // Calculate heading when the magnetometer is level, then correct for signs of axis.
