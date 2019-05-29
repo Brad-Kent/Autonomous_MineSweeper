@@ -8,15 +8,15 @@ private:
     const int MotorASpeed;
     const int MotorBSpeed;
 
-    int userSpecified;
-
 public:
     DriveSystem(int MotorA, int MotorB, int MotorASpeed, int MotorBSpeed);
 
-    void stop();
+    void stop       ();
     void goFoward   ();
     void goBackwards();
-    void go();
+    void go         ();
+    void turnLeft   ();
+    void turnRight  ();
 
 private:
     void DriveSystem::setDirection(int direction);

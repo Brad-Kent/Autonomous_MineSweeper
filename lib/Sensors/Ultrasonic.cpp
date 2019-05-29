@@ -9,7 +9,7 @@ Ultrasonic::Ultrasonic(int trigPin, int echoPin):
     distance = 0;
 }
 
-double Ultrasonic::getDistance()
+int Ultrasonic::getDistance()
 {
     ping();
     return distance;
