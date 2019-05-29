@@ -1,4 +1,4 @@
-#include <other.h>
+#include <main.h>
 #include <AFMotor.h>
 #include <Servo.h>
 #include <SparkFun_MAG3110.h>
