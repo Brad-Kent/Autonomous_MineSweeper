@@ -2,6 +2,7 @@
 #include <AFMotor.h>
 #include <Servo.h>
 #include <SparkFun_MAG3110.h>
+#include <AFMotor.h>
 
 MAG3110 mag = MAG3110(); //Instantiate MAG3110
 Servo servo_1;

@@ -34,25 +34,25 @@ void DriveSystem::stop()
 
 void DriveSystem::goFoward()
 {
-    setDirection(FOWARD, BACKWARD);
+    setDirection(FOWARD);
     go();
 }
 
 void DriveSystem::goBackwards()
 {
-    setDirection(BACKWARD, FOWARD);
+    setDirection(BACKWARD);
     go();
 }
 
 void DriveSystem::turnRight()
 {
-    setDirection(FOWARD);
+    setDirection(FOWARD, BACKWARD);
     go();
 }
 
 void DriveSystem::turnLeft()
 {
-    setDirection(BACKWARD);
+    setDirection(BACKWARD, FOWARD);
     go();
 }
 

@@ -2,7 +2,6 @@
 #include <SparkFun_MAG3110.h>
 #include <DriveSystem.h>
 #include <Ultrasonic.h>
-#include <AFMotor.h>
 #include <Servo.h>
 
 
@@ -19,13 +18,16 @@ int distances[]   = {0, 0, 0}; // Foward, Right, Left
 int servoAngles[] = {90, 180, 0};
 
 int detectionDistance = 30;
-int turnTime = 2000;
-int travelTime = 2000;
+int turnTime          = 2000;
+int travelTime        = 2000;
 
-int checkDirection(int angle);
-int getDirection();
+int checkDirection  (int angle);
+int getDirection    ();
 void updateDistances();
-void demoFunctions();
+void demoFunctions  ();
+bool magDetect      ();
+void markLandmine   ();
+
 
 void setup()
 {
@@ -33,18 +35,24 @@ void setup()
     servoMarking   .attach(6);
     servoUltrasonic.write(90);
     servoMarking   .write(90);
-
+    pinMode(testMode, INPUT);
+    servoMarking.write(90);
+    servoUltrasonic.write(90);
+    motors.stop();
     mag.initialize(); //Initializes the mag sensor
     mag.start     (); //Puts the sensor in active mode
 }
 
 void loop()
 {
-
-    if(digitalRead(testMode)) demoFunctions();
+    if(digitalRead(testMode))
+    {
+         demoFunctions();
+         return;
+    }
 
     // Update Distance
-    motors.stop();
+    //motors.stop();
     updateDistances();
 
     // Update Direction
@@ -77,7 +85,6 @@ void loop()
         motors.goBackwards();
         delay(travelTime);
     }
-
 }
 
 void updateDistances()
@@ -105,7 +112,7 @@ int checkDirection(int angle)
     return ultrasonic.getDistance();
 }
 
-bool mag_detect()
+bool magDetect()
 {
     int x, y, z;
     if(mag.dataReady())
@@ -115,15 +122,13 @@ bool mag_detect()
             return true;
     }
     else
-    {
         return false;
-    }
 }
 
-void marLandmine()
+void markLandmine()
 {
-    servoMarking.write(0 ); delay(400);
-    servoMarking.write(90); delay(400);
+    servoMarking.write(0 ); delay(1000);
+    servoMarking.write(90); delay(1000);
 }
 
 void demoFunctions()
@@ -133,8 +138,10 @@ void demoFunctions()
     motors.goBackwards(); delay(duration);
     motors.turnLeft   (); delay(duration);
     motors.turnRight  (); delay(duration);
-
+    motors.stop();
+    delay(1000);
     checkDirection(0  ); delay(duration/2);
     checkDirection(180); delay(duration/2);
     checkDirection(90 ); delay(duration/2);
+    markLandmine();
 }
